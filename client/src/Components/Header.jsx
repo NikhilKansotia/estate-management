@@ -1,5 +1,5 @@
 import { FaSearch } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 function Header() {
   return (
     <header className="bg-[#FFF1DB] shadow-md">
@@ -10,7 +10,7 @@ function Header() {
             <span className="text-[#EF5A6F]">Estate</span>
           </h1>
         </Link>
-        <form className="bg-[#D4BDAC] flex items-center">
+        <form className="bg-[#e3ceac] flex items-center">
           <input
             type="text"
             placeholder="Search..."
@@ -19,19 +19,37 @@ function Header() {
           <FaSearch className="text-[#EF5A6F]" />
         </form>
         <ul className="flex gap-4">
-          <Link to="/">
-            <li className="hidden sm:inline text-[#536493] hover:underline">
+          <li>
+            <NavLink
+              to="/"
+              className={(e) => {
+                return e.isActive ? "text-[#EF5A6F]" : "";
+              }}
+            >
               Home
-            </li>
-          </Link>
-          <Link to="/about">
-            <li className="hidden sm:inline text-[#536493] hover:underline">
+            </NavLink>
+          </li>
+
+          <li className="hidden sm:inline text-[#536493] hover:underline">
+            <NavLink
+              to="/about"
+              className={(e) => {
+                return e.isActive ? "text-[#EF5A6F]" : "";
+              }}
+            >
               About
-            </li>
-          </Link>
-          <Link to="/sign-in">
-            <li className=" text-[#536493] hover:underline">Sign In</li>
-          </Link>
+            </NavLink>
+          </li>
+          <li className=" text-[#536493] hover:underline">
+            <NavLink
+              to="/sign-in"
+              className={(e) => {
+                return e.isActive ? "text-[#EF5A6F]" : "";
+              }}
+            >
+              Signin
+            </NavLink>
+          </li>
         </ul>
       </div>
     </header>
